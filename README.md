@@ -12,6 +12,7 @@ Here I've collected a set of interesting systems articles and papers to refer ba
 
 ## Hadoop / Kafka / Others
 
+* [Hadoop Paper](http://pages.cs.wisc.edu/~akella/CS838/F15/838-CloudPapers/hdfs.pdf)
 * [Kafka Paper](http://research.microsoft.com/en-us/um/people/srikanth/netdb11/netdb11papers/netdb11-final12.pdf)
 * [Spark Paper](http://www.cs.berkeley.edu/~matei/papers/2010/hotcloud_spark.pdf)
 * [Spotify Event Delivery](https://labs.spotify.com/2016/02/25/spotifys-event-delivery-the-road-to-the-cloud-part-i/)
