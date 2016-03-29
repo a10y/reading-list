@@ -3,16 +3,16 @@ Monads for functional programming
 
 Takes an approach for a simple arithmetic language.
 
-```
+```haskell
 data Term = Con Int | Div Term Term
 ```
 
 Have the following:
 
-```
+```haskell
 eval :: Term -> Int
 eval (Con a) = a
-eval (Div t1 t2) = eval t1 / eval t2
+eval (Div t1 t2) = eval t1 `div` eval t2
 ```
 
 **Question**: How do we extend this to allow for certain other operations? Example, exceptions, counting number of divs.
@@ -21,7 +21,7 @@ In impure languages (i.e. Java, C) this is simple, just use mutable state.
 Variation One: Exceptions
 --------------------------
 
-```
+```haskell
 -- Either throws an exception or returns a type. Similar to the Either Monad.
 data M a = Raise Exception
          | Return a
@@ -36,7 +36,7 @@ eval (Div t1 t2) = case eval t1 of
                                      Raise e  -> Raise e
                                      Return b -> if b == 0
                                                  then Raise "divide-by-zero"
-                                                 else Return (a / b)
+                                                 else Return (a `div` b)
 ```
 
 Clearly, this could be less gross. Note that this turns into a cascading set of `case` statements.
@@ -46,7 +46,7 @@ Variation Two: State
 
 Say we wish to track the number of divisions that occur, for profiling purposes.
 
-```
+```haskell
 -- Function that takes an initial state, returns a value plus the state.
 type M a = State -> (a, State)
 type State = Int
@@ -56,7 +56,7 @@ eval :: Term -> M Int
 eval (Con a) s = (a, s)
 eval (Div t1 t2) s = let (a,y) = eval t1 s
                          (b,z) = eval t2 y
-                     in (a / b, z+1)
+                     in (a `div` b, z+1)
 ```
 
 Again, this is a bit gross to have to write out by hand.
@@ -67,7 +67,7 @@ Monads To the Resuce
 
 Monads can help us to be briefer here. There are two elementary operations defined on a monad:
 
-```
+```haskell
 unit :: a -> M a
 bind :: M a -> (a -> M b) -> M b
 ```
@@ -75,7 +75,7 @@ bind :: M a -> (a -> M b) -> M b
 Variation One: Exceptions Monad
 -------------------------------
 
-```
+```haskell
 type M a = Raise Exception
          | Return a
 type Exception = String
@@ -93,7 +93,7 @@ eval (Con a) = unit a
 eval (Div t1 t2) = eval t1 `bind`
                     \a -> eval t2 `bind`
                       \b -> if b == 0 then Raise "divide by zero"
-                                      else unit (a / b)
+                                      else unit (a `div` b)
 ```
 
 Variation Two: State Monad
@@ -101,7 +101,7 @@ Variation Two: State Monad
 
 Now, as before we wish to track the number of divisions performed, but we want to make the monad handle this for us.
 
-```
+```haskell
 type M a = State -> (a, State)
 type State = Int
 
@@ -111,7 +111,7 @@ unit a = \s -> (a, s)
 
 -- Extra functions
 tick :: M ()
-tick \x -> ((), x+1)
+tick x = ((), x+1)
 
 -- Take a current state, run it through a function to update the state.
 bind :: M a -> (a -> M b) -> M b
@@ -124,7 +124,7 @@ eval (Con a) = unit a
 eval (Div t1 t2) = eval t1 `bind`
                     \a -> eval t2 `bind`
                       \b -> tick `bind`
-                        \_ -> unit (a / b)
+                        \_ -> unit (a `div` b)
 ```
 
 The tick function will go ahead and up the counter by one when a division is encountered, but then return `a/b` in an `M Int`
