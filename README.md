@@ -1,7 +1,7 @@
 # Systems Reading
 
 Here I've collected a set of interesting systems articles and papers to refer back to in the future. They're organized by category. Some I've read, some are going to be read.
--------
+
 ## Google / Other Classics
 
 * [MapReduce](http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf) **READ**
