@@ -2,6 +2,16 @@
 
 Here I've collected a set of interesting systems articles and papers to refer back to in the future. They're organized by category. Some I've read, some are going to be read.
 
+## Concurrency
+* [CSP](http://spinroot.com/courses/summer/Papers/hoare_1978.pdf)
+
+## Plan 9
+* [Plan 9 from Bell Labs](http://plan9.bell-labs.com/sys/doc/9.html)
+* [The Use of Name Spaces in Plan 9](http://plan9.bell-labs.com/sys/doc/names.html)
+* [The Organization of Networks in Plan 9](http://plan9.bell-labs.com/sys/doc/net/net.html)
+* [How to Use the Plan 9 Compiler](http://plan9.bell-labs.com/sys/doc/comp.html)
+* [Plan 9 Documentation](http://plan9.bell-labs.com/sys/doc/)
+
 ## Google / Other Classics
 
 * [MapReduce](http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf) **READ**
