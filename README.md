@@ -35,7 +35,7 @@
 
 This section deals with papers specific to Haskell and the like.
 
-* [Beautiful Concurrency (STM)](http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/beautiful.pdf)
+* [Beautiful Concurrency (STM)](http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/beautiful.pdf), [Notes](notes/Wadler95.md)
 * [Lock-Free Data Structures Using STM in Haskell](http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/lock-free-flops06.pdf)
 * [Monads for functional programming (Waddler95)](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
