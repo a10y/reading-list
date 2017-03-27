@@ -19,6 +19,7 @@ Here I've collected a set of interesting systems articles and papers to refer ba
 # Machine Learning / Deep Learning
 
 * [TensorFlow](http://download.tensorflow.org/paper/whitepaper2015.pdf)
+* [Versioned machine learning pipelines for batch experimentation](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxtbHN5c25pcHMyMDE2fGd4OjIyZmIzYTI5MWVmZTVjMTI)
 
 ## Hadoop / Kafka / Others
 
@@ -38,7 +39,7 @@ This section deals with papers specific to Haskell and the like.
 
 * [Beautiful Concurrency (STM)](http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/beautiful.pdf)
 * [Lock-Free Data Structures Using STM in Haskell](http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/lock-free-flops06.pdf)
-* [Monads for functional programming (Waddler95)](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf) **READ**
+* [Monads for functional programming (Waddler95)](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
 # Data Intensive Systems
 
